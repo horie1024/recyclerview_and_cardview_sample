@@ -2,9 +2,10 @@ package horie1024.jp.sample;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
-
 
 public class MainActivity extends Activity {
 
@@ -12,6 +13,14 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+        recyclerView.setHasFixedSize(true);
+
+        String[] data = {"test1", "test2", "test3", "test4", "test5", "test6", "test7", "test8", "test9", "test10", "test11", "test12"};
+
+        recyclerView.setAdapter(new SampleAdapter(data));
     }
 
 
